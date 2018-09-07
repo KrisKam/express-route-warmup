@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const host = 3000;
+const host = process.env.PORT || 3000;
 const data = require("./data.js");
 
 app.get("/", (req, res) => {
