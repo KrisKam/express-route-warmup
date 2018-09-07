@@ -9,13 +9,13 @@ app.get("/", (req, res) => {
 
 app.get("/:id", (req, res) => {
   const id = parseInt(req.params.id)
-  const dataItem = data.find(dataElement => {
+  const dataItem = data.filter(dataElement => {
     return dataElement.id === id;
   })
-  if (dataItem) {
+  if (dataItem !== []) {
     res.send(dataItem);
   } else {
-    res.send("Error: Page does not exist")
+    res.status(404).send("Error: Page does not exist");
   }
 })
 
